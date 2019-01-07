@@ -1,0 +1,88 @@
+﻿@model IEnumerable<HotelManagement.Models.Users>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Index</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--===============================================================================================-->
+    <link rel="icon" type="image/png" href="~/Content/login/images/icons/favicon.ico" />
+    <!--===============================================================================================-->
+
+    <link href="~/Content/login/css/bootstrap.min.css" rel="stylesheet" />
+    <!--===============================================================================================-->
+
+    <link href="~/fonts/login/fonts/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+    <!--===============================================================================================-->
+
+    <link href="~/fonts/login/fonts/Linearicons-Free-v1.0.0/icon-font.min.css" rel="stylesheet" />
+    <!--===============================================================================================-->
+
+    <link href="~/Content/login/css/animate.css" rel="stylesheet" />
+    <!--===============================================================================================-->
+
+    <link href="~/Content/login/css/hamburgers.min.css" rel="stylesheet" />
+    <!--===============================================================================================-->
+
+    <link href="~/Content/login/css/animsition.min.css" rel="stylesheet" />
+    <!--===============================================================================================-->
+
+    <link href="~/Content/login/css/select2.min.css" rel="stylesheet" />
+    <!--===============================================================================================-->
+
+    <link href="~/Content/login/css/daterangepicker.css" rel="stylesheet" />
+    <!--===============================================================================================-->
+
+    <link href="~/Content/login/css/util.css" rel="stylesheet" />
+    <link href="~/Content/login/css/main.css" rel="stylesheet" />
+    <!--===============================================================================================-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+
+    
+</head>
+
+<body>
+    <div class="container">
+        <h2>Choose what you have to manage.</h2>       
+        @if (Session["User"] != null)
+        {
+            HotelManagement.Models.Users obj = (HotelManagement.Models.Users)Session["User"];
+            if (obj.RoleID == 1)
+            {
+
+                <a href="~/Book/Index" class="btn btn-info" role="button">Booking</a>
+                <a href="~/Room/Index" class="btn btn-info" role="button">Rooms</a>
+                <a href="~/Member/Index" class="btn btn-info" role="button">Users</a>
+            }
+            else if (obj.RoleID == 2)
+            {
+
+                <a href="~/Book/Index" class="btn btn-info" role="button">Booking</a>
+                <a href="~/Room/Index" class="btn btn-info" role="button">Rooms</a>
+                <a href="~/Member/Index" class="btn btn-info" role="button" disabled="disabled" style="pointer-events:none;">Users</a>
+
+            }
+            else
+            {
+                <a href="~/Book/Index" class="btn btn-info" role="button" disabled="disabled" style="pointer-events:none;">Booking</a>
+                <a href="~/Room/Index" class="btn btn-info" role="button" disabled="disabled" style="pointer-events:none;">Rooms</a>
+                <a href="~/Member/Index" class="btn btn-info" role="button" disabled="disabled" style="pointer-events:none;">Users</a>
+            }
+        }
+        
+
+
+
+
+
+    </div>
+
+</body>
+</html>

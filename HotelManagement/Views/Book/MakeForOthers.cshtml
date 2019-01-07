@@ -1,0 +1,303 @@
+﻿
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <title>Booking Form HTML Template</title>
+
+    <!-- Google font -->
+    <link href="https://fonts.googleapis.com/css?family=PT+Sans:400" rel="stylesheet">
+
+    <!-- Bootstrap -->
+    <link href="~/Content/bookingCss/css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- Custom stlylesheet -->
+    <link href="~/Content/bookingCss/css/style.css" rel="stylesheet" />
+
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+          <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+          <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+</head>
+
+<body style="background-image: url('../../Content/images/bg_1.jpg');">
+    <div id="booking" class="section">
+        <div class="section-center">
+            <div class="container">
+                <div class="row">
+                    <div class="booking-form" style="margin-top:50px;">
+
+                        <form action="/Book/MakeForOthers" method="post">
+
+                            @{
+                                if (Session["User"] != null)
+                                {
+
+                                    HotelManagement.Models.Users obj = (HotelManagement.Models.Users)Session["User"];
+                                    if (obj.RoleID == 3)
+                                    {
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <span class="form-label">User Name</span>
+                                                    <input class="form-control" type="text" name="UserName" placeholder="UserName" required>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <span class="form-label">Birthday</span>
+                                                    <input class="form-control" type="date" name="Birthday">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <span class="form-label">Address</span>
+                                                    <input class="form-control" type="text" placeholder="Address" name="Address">
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <span class="form-label">Phone Number</span>
+                                                    <input class="form-control" type="text" placeholder="PhoneNumber" name="PhoneNumber">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <span class="form-label">Passport Number</span>
+                                                    <input class="form-control" type="text" name="PassportNumber" placeholder="PassportNumber">
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <span class="form-label">Gender</span>
+                                                    <select class="form-control" name="Gender">
+                                                        <option value="F" selected>F</option>
+                                                        <option value="M">M</option>
+                                                    </select>
+                                                    <span class="select-arrow"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-8">
+                                            <div class="form-btn">
+                                                <button class="submit-btn">ADD</button>
+                                            </div>
+                                        </div>
+                                    }
+                                    else
+                                    {
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <span class="form-label">User Name</span>
+                                                    <input class="form-control" type="text" name="UserName" placeholder="UserName" required>
+                                                </div>
+                                            </div><div class="col-md-6">
+                                                <div class="form-group">
+                                                    <span class="form-label">Member UserName</span>
+                                                    <input class="form-control" type="text" name="MemberUserName" placeholder="MemberUserName" required>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <span class="form-label">Birthday</span>
+                                                    <input class="form-control" type="date" name="Birthday">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <span class="form-label">Address</span>
+                                                    <input class="form-control" type="text" placeholder="Address" name="Address">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <span class="form-label">Phone Number</span>
+                                                    <input class="form-control" type="text" placeholder="PhoneNumber" name="PhoneNumber">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <span class="form-label">Passport Number</span>
+                                                    <input class="form-control" type="text" name="PassportNumber" placeholder="PassportNumber">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <span class="form-label">Gender</span>
+                                                    <select class="form-control" name="Gender">
+                                                        <option value="F" selected>F</option>
+                                                        <option value="M">M</option>
+                                                    </select>
+                                                    <span class="select-arrow"></span>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="col-md-8">
+                                            <div class="form-btn">
+                                                <button class="submit-btn">Book Now</button>
+                                            </div>
+                                        </div>
+                                    }
+                                }
+                                else
+                                {
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <span class="form-label">First Name</span>
+                                                <input class="form-control" type="text" name="FirstName" placeholder="FirstName" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <span class="form-label">Last Name</span>
+                                                <input class="form-control" type="text" name="LastName" placeholder="LastName" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <span class="form-label">Birthday</span>
+                                                <input class="form-control" type="date" name="Birthday">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <span class="form-label">Address</span>
+                                                <input class="form-control" type="text" placeholder="Address" name="Address">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <span class="form-label">Phone Number</span>
+                                                <input class="form-control" type="text" placeholder="PhoneNumber" name="PhoneNumber">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <span class="form-label">Passport Number</span>
+                                                <input class="form-control" type="text" name="PassportNumber" placeholder="PassportNumber">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <span class="form-label">Check In</span>
+                                                <input class="form-control" type="date" name="CheckIn" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <span class="form-label">Check Out</span>
+                                                <input class="form-control" type="date" name="CheckOut" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <span class="form-label">Adults (18+)</span>
+                                                <select class="form-control" name="AdultsNo">
+                                                    <option value="1" selected>1</option>
+                                                    <option value="2">2</option>
+                                                    <option value="3">3</option>
+                                                </select>
+                                                <span class="select-arrow"></span>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <span class="form-label">Children</span>
+                                                <select class="form-control" name="ChildrenNo">
+                                                    <option value="0" selected>0</option>
+                                                    <option value="1">1</option>
+                                                    <option value="2">2</option>
+                                                </select>
+                                                <span class="select-arrow"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <span class="form-label">Gender</span>
+                                                <select class="form-control" name="Gender">
+                                                    <option value="F" selected>F</option>
+                                                    <option value="M">M</option>
+                                                </select>
+                                                <span class="select-arrow"></span>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <span class="form-label">Room Type</span>
+                                                <select class="form-control" name="RoomDescription">
+                                                    <option value="Bachelor">Bachelor</option>
+                                                    <option value="Family">Family</option>
+                                                    <option value="Presidential">Presidential</option>
+                                                    <option value="Superior">Superior</option>
+                                                    <option value="Premier">Premier</option>
+                                                    <option value="Triple">Triple</option>
+                                                    <option value="King">King</option>
+                                                    <option value="Deluxe">Deluxe King</option>
+                                                </select>
+                                                <span class="select-arrow"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-8">
+                                        <div class="form-btn">
+                                            <button class="submit-btn">Book Now</button>
+                                        </div>
+                                    </div>
+                                }
+                            }
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        var today = new Date().toISOString().split('T')[0];
+        document.getElementsByName("CheckIn")[0].setAttribute('min', today);
+        document.getElementsByName("CheckOut")[0].setAttribute('min', today);
+    </script>
+</body>
+</html>
+

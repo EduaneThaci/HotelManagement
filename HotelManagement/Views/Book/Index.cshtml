@@ -1,0 +1,172 @@
+﻿@model IEnumerable<HotelManagement.Models.Booking>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Index</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--===============================================================================================-->
+    <link rel="icon" type="image/png" href="~/Content/login/images/icons/favicon.ico" />
+    <!--===============================================================================================-->
+
+    <link href="~/Content/login/css/bootstrap.min.css" rel="stylesheet" />
+    <!--===============================================================================================-->
+
+    <link href="~/fonts/login/fonts/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+    <!--===============================================================================================-->
+
+    <link href="~/fonts/login/fonts/Linearicons-Free-v1.0.0/icon-font.min.css" rel="stylesheet" />
+    <!--===============================================================================================-->
+
+    <link href="~/Content/login/css/animate.css" rel="stylesheet" />
+    <!--===============================================================================================-->
+
+    <link href="~/Content/login/css/hamburgers.min.css" rel="stylesheet" />
+    <!--===============================================================================================-->
+
+    <link href="~/Content/login/css/animsition.min.css" rel="stylesheet" />
+    <!--===============================================================================================-->
+
+    <link href="~/Content/login/css/select2.min.css" rel="stylesheet" />
+    <!--===============================================================================================-->
+
+    <link href="~/Content/login/css/daterangepicker.css" rel="stylesheet" />
+    <!--===============================================================================================-->
+
+    <link href="~/Content/login/css/util.css" rel="stylesheet" />
+    <link href="~/Content/login/css/main.css" rel="stylesheet" />
+    <!--===============================================================================================-->
+</head>
+
+<body>
+    <div class="block-30 block-30-sm item" style="background-image: url('../../Content/images/bg_2.jpg');" data-stellar-background-ratio="0.5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-10">
+                    <span class="subheading-sm">Booking</span>
+                    <h2 class="heading">Manage Bookings</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div style="margin-top:50px; text-align:center;">
+        <h2>Booking</h2>
+    </div>
+    <p>
+    <p style="font-size:medium">
+        Add
+        @*@Html.ActionLink("New Booking", "Make")*@
+        <a href='@Url.Action("Make","Book")'>
+            <img src="@Url.Content("~/Content/images/add1.png")" />
+        </a>
+    </p>
+    </p>
+    <table class="table table-bordred table-striped table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LastName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Birthday)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Address)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PhoneNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PassportNumber)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.AdultsNo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ChildrenNo)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.CheckIn)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CheckOut)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RoomDescription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.isConfirmed)
+            </th>
+
+            <th></th>
+        </tr>
+        @foreach (HotelManagement.Models.Booking item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FirstName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LastName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Birthday)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Address)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PhoneNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PassportNumber)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.AdultsNo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ChildrenNo)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.CheckIn)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CheckOut)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RoomDescription)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.isConfirmed)
+                </td>
+
+                <td>
+                    @*@Html.ActionLink("Edit", "Edit", new { bookID = item.BookingID },new { @style= 'background-image:url("../../Content/images/edit.png")' })|*@
+
+                    <a href='@Url.Action("Edit", "Book",new { bookID=item.BookingID})'>
+                        <img src='@Url.Content("~/Content/images/edit1.png")' />
+                    </a>
+
+                    @*@Html.ActionLink("Delete", "Delete", new { bookID = item.BookingID }, new { style = "color:red;" })*@
+
+                    <a href='@Url.Action("Delete", "Book",new { bookID=item.BookingID})'>
+                        <img src='@Url.Content("~/Content/images/delete.png")' />
+                    </a>
+                </td>
+            </tr>
+        }
+
+    </table>
+</body>
+</html>
